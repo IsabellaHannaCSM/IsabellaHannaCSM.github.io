@@ -1,0 +1,20 @@
+{
+  "index.qmd": {
+    "index.html": "6e15dc3e"
+  },
+  "about.qmd": {
+    "about.html": "5ac3c843"
+  },
+  "posts/post-with-code/index.qmd": {
+    "index.html": "540075d7"
+  },
+  "posts/welcome/index.qmd": {
+    "index.html": "e38b8549"
+  },
+  "posts/conda envs/index.qmd": {
+    "index.html": "daad6a29"
+  },
+  "posts/amplicon/index.qmd": {
+    "index.html": "544a98d9"
+  }
+}

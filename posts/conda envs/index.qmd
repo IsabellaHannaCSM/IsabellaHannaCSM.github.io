@@ -1,0 +1,101 @@
+---
+title: "Ambientes no conda"
+author: "Isabella Moraes"
+date: "2026-05-18"
+categories: [linux]
+engine: knitr
+---
+
+Os ambientes conda permitem a instalação de diferentes programas, ou diferentes versões do mesmo programa, de forma isolada, de modo a evitar conflitos de versão dentro de um mesmo ambiente.
+
+**Quando criar um novo ambiente?**
+
+É importante separar ambientes quando dois programas possuem conflito de dependências entre si, quando um programa exige uma versão específica de Python (ou outro programa) que é diferente daquela do ambiente atual, ou quando um programa é de difícil instalação e pode acabar bagunçando o ambiente atual.
+
+Além disso, separar o ambiente pode ser uma boa prática quando se deseja isolar um projeto completamente.
+
+**Como criar um novo ambiente?**
+
+É possível criar um novo ambiente de duas formas: diretamente pela linha de comando e através de um arquivo .yml:
+
+Criando pela linha de comando
+```{bash}
+#| eval: false
+conda create -n nome_do_ambiente
+```
+
+Criando com um .yml 
+```{bash}
+#| eval: false
+conda create -f ambiente.yml
+```
+
+**Como especificar versões?**
+
+Como dito anteriormente, você pode precisar instalar uma versão específica de um programa. Para fazer isso, basta usar o comando:
+```{bash}
+#| eval: false
+conda create -n nome_do_ambiente python=3.10
+```
+
+Você também pode instalar o programa com uma versão não específica, mas dentro de uma faixa:
+
+- python>=3.1       # 3.1 ou maior
+- python<=3.1       # 3.1 ou menor
+- python>=3.1,<4.0  # entre 3.1 e 4.0
+
+**Como criar um arquivo de ambiente?**
+
+Um arquivo de ambiente é um tipo de arquivo yaml que descreve o nome do ambiente, seus canais e os programas instalados nas dependências. Ele pode ser criado do zero ou a partir da exportação de um ambiente já existente. 
+
+Para criar do zero é necessário criar um arquivo de texto com a seguinte formatação:
+
+name: bioinfo
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.13
+  - seqkit=2.3.1
+  - blast=2.13.0
+
+Para criar a partir de um ambiente existente, existem algumas possibilidades:
+
+```{bash}
+#| eval: false
+conda env export > ambiente.yml
+```
+- A partir do ambiente atual
+
+
+```{bash}
+#| eval: false
+conda env export -n nome_do_ambiente > ambiente.yml
+```
+- A partir de outro ambiente
+
+
+```{bash}
+#| eval: false
+conda env export --no-builds > ambiente.yml
+```
+- A flag "--no-builds" mantém a versão de cada programa, sem amarrar a um sistema operacional (SO) específico. É ideal para reprodutibilidade e compartilhamento, pois permite que o ambiente seja criado em qualquer SO sem problemas de compatibilidade.
+
+
+```{bash}
+#| eval: false
+conda env export --from-history > ambiente.yml
+```
+- A flag "--from-history" exporta apenas os programas que foram instalados explicitamente, deixando de fora as suas dependências.
+
+Utilizar um arquivo de ambiente é vantajoso porque garante reprodutibilidade e colaboração, visto que qualquer pessoa pode recriar seu ambiente com apenas um comando. Ajuda na documentação, pois as ferramentas e versões utilizadas ficam registradas, além de auxiliar na recuperação, pois caso o ambiente quebre, ele pode ser recriado rapidamente.
+
+**Outros comandos**
+
+Comandos importantes quando se está trabalhando com ambientes conda:
+
+- conda env list (lista todos os ambientes)
+- conda activate nome_do_ambiente (entra em um ambiente)
+- conda deactivate (sai de um ambiente)
+- conda env remove -n nome_do_ambiente (remove um ambiente)

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://your-website-url.example.com/posts/conda envs/index.html</loc>
+    <lastmod>2026-05-18T19:34:40.178Z</lastmod>
+  </url>
+  <url>
+    <loc>https://your-website-url.example.com/about.html</loc>
+    <lastmod>2026-05-19T15:11:45.865Z</lastmod>
+  </url>
+  <url>
+    <loc>https://your-website-url.example.com/index.html</loc>
+    <lastmod>2026-05-19T15:11:59.789Z</lastmod>
+  </url>
+  <url>
+    <loc>https://your-website-url.example.com/posts/amplicon/index.html</loc>
+    <lastmod>2026-05-19T18:11:49.065Z</lastmod>
+  </url>
+</urlset>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>blog</title>
+<link>https://your-website-url.example.com/</link>
+<atom:link href="https://your-website-url.example.com/index.xml" rel="self" type="application/rss+xml"/>
+<description>A blog built with Quarto</description>
+<generator>quarto-1.9.37</generator>
+<lastBuildDate>Mon, 18 May 2026 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Ambientes no conda</title>
+  <dc:creator>Isabella Moraes</dc:creator>
+  <link>https://your-website-url.example.com/posts/conda envs/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Os ambientes conda permitem a instalação de diferentes programas, ou diferentes versões do mesmo programa, de forma isolada, de modo a evitar conflitos de versão dentro de um mesmo ambiente.</p>
+<p><strong>Quando criar um novo ambiente?</strong></p>
+<p>É importante separar ambientes quando dois programas possuem conflito de dependências entre si, quando um programa exige uma versão específica de Python (ou outro programa) que é diferente daquela do ambiente atual, ou quando um programa é de difícil instalação e pode acabar bagunçando o ambiente atual.</p>
+<p>Além disso, separar o ambiente pode ser uma boa prática quando se deseja isolar um projeto completamente.</p>
+<p><strong>Como criar um novo ambiente?</strong></p>
+<p>É possível criar um novo ambiente de duas formas: diretamente pela linha de comando e através de um arquivo .yml:</p>
+<p>Criando pela linha de comando</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">conda</span> create <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-n</span> nome_do_ambiente</span></code></pre></div></div>
+</div>
+<p>Criando com um .yml</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">conda</span> create <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-f</span> ambiente.yml</span></code></pre></div></div>
+</div>
+<p><strong>Como especificar versões?</strong></p>
+<p>Como dito anteriormente, você pode precisar instalar uma versão específica de um programa. Para fazer isso, basta usar o comando:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">conda</span> create <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-n</span> nome_do_ambiente python=3.10</span></code></pre></div></div>
+</div>
+<p>Você também pode instalar o programa com uma versão não específica, mas dentro de uma faixa:</p>
+<ul>
+<li>python&gt;=3.1 # 3.1 ou maior</li>
+<li>python&lt;=3.1 # 3.1 ou menor</li>
+<li>python&gt;=3.1,&lt;4.0 # entre 3.1 e 4.0</li>
+</ul>
+<p><strong>Como criar um arquivo de ambiente?</strong></p>
+<p>Um arquivo de ambiente é um tipo de arquivo yaml que descreve o nome do ambiente, seus canais e os programas instalados nas dependências. Ele pode ser criado do zero ou a partir da exportação de um ambiente já existente.</p>
+<p>Para criar do zero é necessário criar um arquivo de texto com a seguinte formatação:</p>
+<p>name: bioinfo channels: - bioconda - conda-forge - defaults dependencies: - python=3.13 - seqkit=2.3.1 - blast=2.13.0</p>
+<p>Para criar a partir de um ambiente existente, existem algumas possibilidades:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">conda</span> env export <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> ambiente.yml</span></code></pre></div></div>
+</div>
+<ul>
+<li>A partir do ambiente atual</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">conda</span> env export <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-n</span> nome_do_ambiente <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> ambiente.yml</span></code></pre></div></div>
+</div>
+<ul>
+<li>A partir de outro ambiente</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">conda</span> env export <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--no-builds</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> ambiente.yml</span></code></pre></div></div>
+</div>
+<ul>
+<li>A flag “–no-builds” mantém a versão de cada programa, sem amarrar a um sistema operacional (SO) específico. É ideal para reprodutibilidade e compartilhamento, pois permite que o ambiente seja criado em qualquer SO sem problemas de compatibilidade.</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">conda</span> env export <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--from-history</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> ambiente.yml</span></code></pre></div></div>
+</div>
+<ul>
+<li>A flag “–from-history” exporta apenas os programas que foram instalados explicitamente, deixando de fora as suas dependências.</li>
+</ul>
+<p>Utilizar um arquivo de ambiente é vantajoso porque garante reprodutibilidade e colaboração, visto que qualquer pessoa pode recriar seu ambiente com apenas um comando. Ajuda na documentação, pois as ferramentas e versões utilizadas ficam registradas, além de auxiliar na recuperação, pois caso o ambiente quebre, ele pode ser recriado rapidamente.</p>
+<p><strong>Outros comandos</strong></p>
+<p>Comandos importantes quando se está trabalhando com ambientes conda:</p>
+<ul>
+<li>conda env list (lista todos os ambientes)</li>
+<li>conda activate nome_do_ambiente (entra em um ambiente)</li>
+<li>conda deactivate (sai de um ambiente)</li>
+<li>conda env remove -n nome_do_ambiente (remove um ambiente)</li>
+</ul>
+
+
+
+ ]]></description>
+  <category>linux</category>
+  <guid>https://your-website-url.example.com/posts/conda envs/</guid>
+  <pubDate>Mon, 18 May 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>PCR in silico</title>
+  <dc:creator>Isabella Moraes</dc:creator>
+  <link>https://your-website-url.example.com/posts/amplicon/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>É possível simular uma PCR de forma computacional e existem vários programas que podem ser utilizados para esse propósito. Aqui falaremos do seqkit e do emboss.</p>
+<p><strong>Como encontrar o amplicon?</strong></p>
+<p>O amplicon é o trecho de DNA que se encontra entre os primers forward e reverse. Esse é o fragmento que é amplificado em uma reação de PCR.</p>
+<p>Para encontrar o amplicon in silico, basta fornecer ao programa o par de primers e o genoma a ser buscado. Vamos utilizar como exemplo os primers do gene <em>wzi</em> da <em>K. pneumoniae</em>:</p>
+<ul>
+<li><p>Forward: GTGCCGCGAGCGCTTTCTATCTTGGTATTCC</p></li>
+<li><p>Reverse: GAGAGCCACTGGTTCCAGAAYTTSACCGC</p></li>
+</ul>
+<p>O comando no seqkit é:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">seqkit</span> amplicon <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-F</span> GTGCCGCGAGCGCTTTCTATCTTGGTATTCC <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-R</span> GAGAGCCACTGGTTCCAGAAYTTSACCGC GCF_000240185.1_ASM24018v2_genomic.fna</span></code></pre></div></div>
+</div>
+<p>Onde -F indica o primer forward, -R indica o primer reverse, e o arquivo GCF.fna contém o genoma da <em>K. pneumoniae</em>.</p>
+<p>A sequência resultante aparecerá diretamente no terminal, a menos que seja direcionada para um documento específico:</p>
+<p><img src="https://your-website-url.example.com/posts/amplicon/seqkit 1.png" class="img-fluid"></p>
+<p>Já no emboss, não é possível passar os primers pela linha de comando, é preciso adicioná-los a um documento e este sim pode ser passado no comando. Além disso, o output da busca é em um arquivo txt:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">primersearch</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-seqall</span> GCF_000240185.1_ASM24018v2_genomic.fna <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-infile</span> primerwzi.txt <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-mismatchpercent</span> 0  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-outfile</span> resultados.txt</span></code></pre></div></div>
+</div>
+<p>Você pode utilizar os comandos <em>cat</em> ou <em>less</em> para visualizar o conteúdo do arquivo. Diferente do seqkit, o emboss não mostra a sequência completa do amplicon, em vez disso mostra a posição do genoma na qual os primers são complementares, qual o comprimento do fragmento e quantos erros de complementariedade (mismatches) existem entre os primers e o genoma:</p>
+<p><img src="https://your-website-url.example.com/posts/amplicon/emboss 1.png" class="img-fluid"></p>
+<p><strong>Como fazer a busca com vários pares de primers?</strong></p>
+<p>Quando queremos fazer a busca por vários amplicons simultaneamente, é necessário passar um arquivo de texto com todos os primers no comando, tanto do seqkit quanto do emboss. Para que os primers sejam reconhecidos, eles devem estar dispostos dessa maneira no arquivo.txt:</p>
+<p><img src="https://your-website-url.example.com/posts/amplicon/primers.PNG" class="img-fluid"><br>
+O nome, seguido pelo primer forward e por último o primer reverse.</p>
+<p>Nesse caso, em fez de passarmos os parâmetros -F e -R, passamos -p e o nome do arquivo de primers no comando do seqkit:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">seqkit</span> amplicon <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-p</span> primers.txt GCF_000240185.1_ASM24018v2_genomic.fna</span></code></pre></div></div>
+</div>
+<p>As sequências resultantes aparecerão diretamente no terminal:</p>
+<p><img src="https://your-website-url.example.com/posts/amplicon/seqkit 2.png" class="img-fluid"></p>
+<p>No emboss, o comando será o mesmo utilizado para um par de primers, só é preciso alterar o nome do arquivo:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">primersearch</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-seqall</span> GCF_000240185.1_ASM24018v2_genomic.fna <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-infile</span> primers.txt <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-mismatchpercent</span> 0  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-outfile</span> resultados.txt</span></code></pre></div></div>
+</div>
+<p>Do mesmo modo, é preciso utilizar os comandos <em>cat</em> ou <em>less</em> para visualizar o resultado da busca:</p>
+<p><img src="https://your-website-url.example.com/posts/amplicon/emboss 2.png" class="img-fluid"></p>
+<p>Os 2 programas retornaram apenas a sequência do primer do gene <em>wzi</em>. Isso porque ambos estão configurados para retornar sequências que não tenham nenhum mismatch, mas podemos alterar essa configuração.</p>
+<p><strong>Como fazer uma busca com mismatches?</strong></p>
+<p>Nem todos os amplicons terão um pareamento perfeito e é comum a existência de SNPs na região do primer. Para evitar a perda de fragmentos amplificáveis, é interessante permitir um percentual de mismatches na busca.</p>
+<p>No seqkit, só precisamos passar o parâmetro -m, seguido pelo número de mismatches permitidos. No caso do seqkit, esse valor é absoluto, independente do tamanho do primer:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">seqkit</span> amplicon <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-p</span> primers.txt GCF_000240185.1_ASM24018v2_genomic.fna <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-m</span> 2</span></code></pre></div></div>
+</div>
+<p>Aumentando a tolerância para 2 mismatches, a busca já retorna amplicons para todos os primers consultados:</p>
+<p><img src="https://your-website-url.example.com/posts/amplicon/seqkit 3.png" class="img-fluid"></p>
+<p>No emboss, o comando permanece o mesmo, mas alteramos o valor do parâmetro -mismatchpercent. Diferente do seqkit, no emboss esse não é um valor absoluto, mas sim um percentual do tamanho do primer. Nesse caso, se utilizarmos um -mismatchpercent 10 em um primer com 20pb, a tolerância será de 2 mismatches, mas se usarmos o mesmo parâmetro para um primer com 30pb, a tolerância será 3:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">primersearch</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-seqall</span> GCF_000240185.1_ASM24018v2_genomic.fna <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-infile</span> primerwzi.txt <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-mismatchpercent</span> 10  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-outfile</span> resultados.txt</span></code></pre></div></div>
+</div>
+<p>Utilizando 10% de mismatches, temos um resultado semelhante ao -m 2 do seqkit, com a amplificação de todos os primers buscados:</p>
+<p><img src="https://your-website-url.example.com/posts/amplicon/emboss 3.png" class="img-fluid"></p>
+<p>Desse modo, aumentando um pouco a tolerância dos mismatches, passamos de 1 amplicon para 7, o que reforça a sua importância.</p>
+
+
+
+ ]]></description>
+  <category>analises</category>
+  <guid>https://your-website-url.example.com/posts/amplicon/</guid>
+  <pubDate>Mon, 18 May 2026 03:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
