@@ -22,5 +22,14 @@
   },
   "posts/Gene annotation/index.qmd": {
     "index.html": "dbcbc288"
+  },
+  "posts/conda_envs/index.qmd": {
+    "index.html": "ccc72b9d"
+  },
+  "posts/recursos_quarto/index.qmd": {
+    "index.html": "861aed59"
+  },
+  "posts/gene_annotation/index.qmd": {
+    "index.html": "9b565ef8"
   }
 }
