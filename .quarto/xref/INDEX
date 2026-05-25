@@ -16,5 +16,11 @@
   },
   "posts/amplicon/index.qmd": {
     "index.html": "544a98d9"
+  },
+  "posts/Recursos quarto/index.qmd": {
+    "index.html": "5b4cf6ca"
+  },
+  "posts/Gene annotation/index.qmd": {
+    "index.html": "dbcbc288"
   }
 }

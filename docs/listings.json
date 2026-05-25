@@ -2,8 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Recursos quarto/index.html",
       "/posts/conda envs/index.html",
-      "/posts/amplicon/index.html"
+      "/posts/amplicon/index.html",
+      "/posts/Gene annotation/index.html"
     ]
   }
 ]

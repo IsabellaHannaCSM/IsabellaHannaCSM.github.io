@@ -2,7 +2,7 @@
 title: "Ambientes no conda"
 author: "Isabella Moraes"
 date: "2026-05-18"
-categories: [linux]
+categories: [Ferramentas]
 engine: knitr
 ---
 

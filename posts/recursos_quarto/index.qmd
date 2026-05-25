@@ -1,0 +1,83 @@
+---
+title: "Recursos úteis do Quarto"
+author: "Isabella Moraes"
+date: "2026-05-25"
+categories: [Ferramentas]
+lang: pt
+filters:
+  - fontawesome   
+---
+
+O Quarto oferece recursos que podem tornar a documentação científica mais organizada. Aqui, apresento alguns dos mais úteis no dia a dia.
+
+## Definition list
+
+A definition list é ideal para criar glossários ou explicar termos técnicos de forma clara.
+
+Lorem:
+: ipsum dolor velit esse cillum dolore.
+
+Sit amet:
+: consectetur adipiscing elit.
+
+Sed:
+: do eiusmod tempor eu fugat nulla pariatur.
+
+## Ícones com Font Awesome
+
+Podemos utilizar a extensão Font Awesome para inserir ícones diretamente no texto:
+
+{{< fa github >}}
+{{< fa envelope >}}
+{{< fa dna >}}
+{{< fa microscope >}}
+
+## Callout notes
+
+As callout notes ajudam a destacar informações importantes. Existem cinco tipos:
+
+::: {.callout-note title="Atenção"}
+incididunt ut labore et dolore magna aliqua.
+:::
+
+::: {.callout-tip}
+Ut enim ad minim veniam
+:::
+
+::: {.callout-warning}
+quis nostrud exercitation ullamco laboris
+:::
+
+::: {.callout-important title="Importante"}
+nisi ut aliquip ex ea commodo consequat.
+:::
+
+::: {.callout-caution}
+Duis aute irure dolor in reprehenderit
+:::
+
+## Cross-references
+
+O Quarto também permite referenciar figuras e tabelas ao longo do texto, com numeração gerada de forma automática.
+
+Para referenciar uma tabela, usamos o prefixo `#tbl-` e para chamá-la, usamos `@tbl-`:
+
+| Tipo | Prefixo | Exemplo |
+|------|---------|---------|
+| Figura | `#fig-` | `@fig-nome` |
+| Tabela | `#tbl-` | `@tbl-nome` |
+| Seção | `#sec-` | `@sec-nome` |
+
+: Prefixos para cross-references no Quarto {#tbl-prefixos}
+
+Como mostrado na @tbl-prefixos, cada tipo de elemento tem um prefixo específico. 
+
+Para figuras, o processo é o mesmo. A @fig-dna ilustra como uma imagem pode ser referenciada no texto.
+
+![Nisi ut aliquip ex ea commodo consequat.](https://cdn.britannica.com/32/234732-050-0E5E77CA/DNA-strands-concept-illustration.jpg){#fig-dna}
+
+Já a @fig-plot mostra como a numeração é gerada automaticamente:
+
+![Eiusmod tempor eu fugat nulla.](https://cdn.corporatefinanceinstitute.com/assets/scatter-plot2.png){#fig-plot}
+
+As cross-references facilitam muito a escrita científica, especialmente em documentos longos como dissertações e artigos.

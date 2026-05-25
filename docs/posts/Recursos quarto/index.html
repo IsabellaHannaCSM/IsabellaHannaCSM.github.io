@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
@@ -7,9 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Isabella Moraes">
-<meta name="dcterms.date" content="2026-05-18">
 
-<title>PCR in silico – blog</title>
+<title>Recursos úteis do Quarto – blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,41 +23,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -80,6 +44,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-0a93e294d83dd91de474e50e04abcb04.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -94,17 +60,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
   }
 }</script>
 
@@ -123,8 +89,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title">blog</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -149,9 +115,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">PCR in silico</h1>
+      <h1 class="title">Recursos úteis do Quarto</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">Análises</div>
+                <div class="quarto-category">Ferramentas</div>
               </div>
                   </div>
   </div>
@@ -160,16 +126,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-title-meta">
 
       <div>
-      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-heading">Autor</div>
       <div class="quarto-title-meta-contents">
                <p>Isabella Moraes </p>
             </div>
     </div>
       
       <div>
-      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-heading">Data de Publicação</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 18, 2026</p>
+        <p class="date">25 de maio de 2026</p>
       </div>
     </div>
     
@@ -188,61 +154,165 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>É possível simular uma PCR de forma computacional e existem vários programas que podem ser utilizados para esse propósito. Aqui falaremos do seqkit e do emboss.</p>
-<p><strong>Como encontrar o amplicon?</strong></p>
-<p>O amplicon é o trecho de DNA que se encontra entre os primers forward e reverse. Esse é o fragmento que é amplificado em uma reação de PCR.</p>
-<p>Para encontrar o amplicon in silico, basta fornecer ao programa o par de primers e o genoma a ser buscado. Vamos utilizar como exemplo os primers do gene <em>wzi</em> da <em>K. pneumoniae</em>:</p>
-<ul>
-<li><p>Forward: GTGCCGCGAGCGCTTTCTATCTTGGTATTCC</p></li>
-<li><p>Reverse: GAGAGCCACTGGTTCCAGAAYTTSACCGC</p></li>
-</ul>
-<p>O comando no seqkit é:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">seqkit</span> amplicon <span class="at">-F</span> GTGCCGCGAGCGCTTTCTATCTTGGTATTCC <span class="at">-R</span> GAGAGCCACTGGTTCCAGAAYTTSACCGC GCF_000240185.1_ASM24018v2_genomic.fna</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>O Quarto oferece recursos que podem tornar a documentação científica mais organizada. Aqui, apresento alguns dos mais úteis no dia a dia.</p>
+<section id="definition-list" class="level2">
+<h2 class="anchored" data-anchor-id="definition-list">Definition list</h2>
+<p>A definition list é ideal para criar glossários ou explicar termos técnicos de forma clara.</p>
+<dl>
+<dt>Lorem:</dt>
+<dd>
+ipsum dolor velit esse cillum dolore.
+</dd>
+<dt>Sit amet:</dt>
+<dd>
+consectetur adipiscing elit.
+</dd>
+<dt>Sed:</dt>
+<dd>
+do eiusmod tempor eu fugat nulla pariatur.
+</dd>
+</dl>
+</section>
+<section id="ícones-com-font-awesome" class="level2">
+<h2 class="anchored" data-anchor-id="ícones-com-font-awesome">Ícones com Font Awesome</h2>
+<p>Podemos utilizar a extensão Font Awesome para inserir ícones diretamente no texto:</p>
+<p><i class="fa-solid fa-github" aria-label="github"></i> <i class="fa-solid fa-envelope" aria-label="envelope"></i> <i class="fa-solid fa-dna" aria-label="dna"></i> <i class="fa-solid fa-microscope" aria-label="microscope"></i></p>
+</section>
+<section id="callout-notes" class="level2">
+<h2 class="anchored" data-anchor-id="callout-notes">Callout notes</h2>
+<p>As callout notes ajudam a destacar informações importantes. Existem cinco tipos:</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Atenção">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Onde -F indica o primer forward, -R indica o primer reverse, e o arquivo GCF.fna contém o genoma da <em>K. pneumoniae</em>.</p>
-<p>A sequência resultante aparecerá diretamente no terminal, a menos que seja direcionada para um documento específico:</p>
-<p><img src="seqkit 1.png" class="img-fluid"></p>
-<p>Já no emboss, não é possível passar os primers pela linha de comando, é preciso adicioná-los a um documento e este sim pode ser passado no comando. Além disso, o output da busca é em um arquivo txt:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">primersearch</span> <span class="at">-seqall</span> GCF_000240185.1_ASM24018v2_genomic.fna <span class="at">-infile</span> primerwzi.txt <span class="at">-mismatchpercent</span> 0  <span class="at">-outfile</span> resultados.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Atenção
 </div>
-<p>Você pode utilizar os comandos <em>cat</em> ou <em>less</em> para visualizar o conteúdo do arquivo. Diferente do seqkit, o emboss não mostra a sequência completa do amplicon, em vez disso mostra a posição do genoma na qual os primers são complementares, qual o comprimento do fragmento e quantos erros de complementariedade (mismatches) existem entre os primers e o genoma:</p>
-<p><img src="emboss 1.png" class="img-fluid"></p>
-<p><strong>Como fazer a busca com vários pares de primers?</strong></p>
-<p>Quando queremos fazer a busca por vários amplicons simultaneamente, é necessário passar um arquivo de texto com todos os primers no comando, tanto do seqkit quanto do emboss. Para que os primers sejam reconhecidos, eles devem estar dispostos dessa maneira no arquivo.txt:</p>
-<p><img src="primers.PNG" class="img-fluid"><br>
-O nome, seguido pelo primer forward e por último o primer reverse.</p>
-<p>Nesse caso, em fez de passarmos os parâmetros -F e -R, passamos -p e o nome do arquivo de primers no comando do seqkit:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">seqkit</span> amplicon <span class="at">-p</span> primers.txt GCF_000240185.1_ASM24018v2_genomic.fna</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>As sequências resultantes aparecerão diretamente no terminal:</p>
-<p><img src="seqkit 2.png" class="img-fluid"></p>
-<p>No emboss, o comando será o mesmo utilizado para um par de primers, só é preciso alterar o nome do arquivo:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">primersearch</span> <span class="at">-seqall</span> GCF_000240185.1_ASM24018v2_genomic.fna <span class="at">-infile</span> primers.txt <span class="at">-mismatchpercent</span> 0  <span class="at">-outfile</span> resultados.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout-body-container callout-body">
+<p>incididunt ut labore et dolore magna aliqua.</p>
 </div>
-<p>Do mesmo modo, é preciso utilizar os comandos <em>cat</em> ou <em>less</em> para visualizar o resultado da busca:</p>
-<p><img src="emboss 2.png" class="img-fluid"></p>
-<p>Os 2 programas retornaram apenas a sequência do primer do gene <em>wzi</em>. Isso porque ambos estão configurados para retornar sequências que não tenham nenhum mismatch, mas podemos alterar essa configuração.</p>
-<p><strong>Como fazer uma busca com mismatches?</strong></p>
-<p>Nem todos os amplicons terão um pareamento perfeito e é comum a existência de SNPs na região do primer. Para evitar a perda de fragmentos amplificáveis, é interessante permitir um percentual de mismatches na busca.</p>
-<p>No seqkit, só precisamos passar o parâmetro -m, seguido pelo número de mismatches permitidos. No caso do seqkit, esse valor é absoluto, independente do tamanho do primer:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">seqkit</span> amplicon <span class="at">-p</span> primers.txt GCF_000240185.1_ASM24018v2_genomic.fna <span class="at">-m</span> 2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Aumentando a tolerância para 2 mismatches, a busca já retorna amplicons para todos os primers consultados:</p>
-<p><img src="seqkit 3.png" class="img-fluid"></p>
-<p>No emboss, o comando permanece o mesmo, mas alteramos o valor do parâmetro -mismatchpercent. Diferente do seqkit, no emboss esse não é um valor absoluto, mas sim um percentual do tamanho do primer. Nesse caso, se utilizarmos um -mismatchpercent 10 em um primer com 20pb, a tolerância será de 2 mismatches, mas se usarmos o mesmo parâmetro para um primer com 30pb, a tolerância será 3:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">primersearch</span> <span class="at">-seqall</span> GCF_000240185.1_ASM24018v2_genomic.fna <span class="at">-infile</span> primerwzi.txt <span class="at">-mismatchpercent</span> 10  <span class="at">-outfile</span> resultados.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Utilizando 10% de mismatches, temos um resultado semelhante ao -m 2 do seqkit, com a amplificação de todos os primers buscados:</p>
-<p><img src="emboss 3.png" class="img-fluid"></p>
-<p>Desse modo, aumentando um pouco a tolerância dos mismatches, passamos de 1 amplicon para 7, o que reforça a sua importância.</p>
+<div class="callout-title-container flex-fill">
+Dica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ut enim ad minim veniam</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Aviso
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>quis nostrud exercitation ullamco laboris</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Importante">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cuidado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Duis aute irure dolor in reprehenderit</p>
+</div>
+</div>
+</section>
+<section id="cross-references" class="level2">
+<h2 class="anchored" data-anchor-id="cross-references">Cross-references</h2>
+<p>O Quarto também permite referenciar figuras e tabelas ao longo do texto, com numeração gerada de forma automática.</p>
+<p>Para referenciar uma tabela, usamos o prefixo <code>#tbl-</code> e para chamá-la, usamos <code>@tbl-</code>:</p>
+<div id="tbl-prefixos" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-prefixos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;1: Prefixos para cross-references no Quarto
+</figcaption>
+<div aria-describedby="tbl-prefixos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>Prefixo</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Figura</td>
+<td><code>#fig-</code></td>
+<td><code>@fig-nome</code></td>
+</tr>
+<tr class="even">
+<td>Tabela</td>
+<td><code>#tbl-</code></td>
+<td><code>@tbl-nome</code></td>
+</tr>
+<tr class="odd">
+<td>Seção</td>
+<td><code>#sec-</code></td>
+<td><code>@sec-nome</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Como mostrado na <a href="#tbl-prefixos" class="quarto-xref">Tabela&nbsp;1</a>, cada tipo de elemento tem um prefixo específico.</p>
+<p>Para figuras, o processo é o mesmo. A <a href="#fig-dna" class="quarto-xref">Figura&nbsp;1</a> ilustra como uma imagem pode ser referenciada no texto.</p>
+<div id="fig-dna" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dna-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://cdn.britannica.com/32/234732-050-0E5E77CA/DNA-strands-concept-illustration.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dna-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Nisi ut aliquip ex ea commodo consequat.
+</figcaption>
+</figure>
+</div>
+<p>Já a <a href="#fig-plot" class="quarto-xref">Figura&nbsp;2</a> mostra como a numeração é gerada automaticamente:</p>
+<div id="fig-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://cdn.corporatefinanceinstitute.com/assets/scatter-plot2.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2: Eiusmod tempor eu fugat nulla.
+</figcaption>
+</figure>
+</div>
+<p>As cross-references facilitam muito a escrita científica, especialmente em documentos longos como dissertações e artigos.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -270,12 +340,12 @@ O nome, seguido pelo primer forward e por último o primer reverse.</p>
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copiada");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copiada");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

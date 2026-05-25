@@ -10,7 +10,182 @@
 <atom:link href="https://IsabellaHannaCSM.github.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog built with Quarto</description>
 <generator>quarto-1.9.37</generator>
-<lastBuildDate>Mon, 18 May 2026 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 25 May 2026 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Recursos úteis do Quarto</title>
+  <dc:creator>Isabella Moraes</dc:creator>
+  <link>https://IsabellaHannaCSM.github.io/posts/Recursos quarto/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>O Quarto oferece recursos que podem tornar a documentação científica mais organizada. Aqui, apresento alguns dos mais úteis no dia a dia.</p>
+<section id="definition-list" class="level2">
+<h2 class="anchored" data-anchor-id="definition-list">Definition list</h2>
+<p>A definition list é ideal para criar glossários ou explicar termos técnicos de forma clara.</p>
+<dl>
+<dt>Lorem:</dt>
+<dd>
+ipsum dolor velit esse cillum dolore.
+</dd>
+<dt>Sit amet:</dt>
+<dd>
+consectetur adipiscing elit.
+</dd>
+<dt>Sed:</dt>
+<dd>
+do eiusmod tempor eu fugat nulla pariatur.
+</dd>
+</dl>
+</section>
+<section id="ícones-com-font-awesome" class="level2">
+<h2 class="anchored" data-anchor-id="ícones-com-font-awesome">Ícones com Font Awesome</h2>
+<p>Podemos utilizar a extensão Font Awesome para inserir ícones diretamente no texto:</p>
+<p><i class="fa-solid fa-github" aria-label="github"></i> <i class="fa-solid fa-envelope" aria-label="envelope"></i> <i class="fa-solid fa-dna" aria-label="dna"></i> <i class="fa-solid fa-microscope" aria-label="microscope"></i></p>
+</section>
+<section id="callout-notes" class="level2">
+<h2 class="anchored" data-anchor-id="callout-notes">Callout notes</h2>
+<p>As callout notes ajudam a destacar informações importantes. Existem cinco tipos:</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Atenção">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Atenção
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>incididunt ut labore et dolore magna aliqua.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Dica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ut enim ad minim veniam</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Aviso
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>quis nostrud exercitation ullamco laboris</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Importante">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cuidado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Duis aute irure dolor in reprehenderit</p>
+</div>
+</div>
+</section>
+<section id="cross-references" class="level2">
+<h2 class="anchored" data-anchor-id="cross-references">Cross-references</h2>
+<p>O Quarto também permite referenciar figuras e tabelas ao longo do texto, com numeração gerada de forma automática.</p>
+<p>Para referenciar uma tabela, usamos o prefixo <code>#tbl-</code> e para chamá-la, usamos <code>@tbl-</code>:</p>
+<div id="tbl-prefixos" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-prefixos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;1: Prefixos para cross-references no Quarto
+</figcaption>
+<div aria-describedby="tbl-prefixos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>Prefixo</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Figura</td>
+<td><code>#fig-</code></td>
+<td><code>@fig-nome</code></td>
+</tr>
+<tr class="even">
+<td>Tabela</td>
+<td><code>#tbl-</code></td>
+<td><code>@tbl-nome</code></td>
+</tr>
+<tr class="odd">
+<td>Seção</td>
+<td><code>#sec-</code></td>
+<td><code>@sec-nome</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Como mostrado na Tabela&nbsp;1, cada tipo de elemento tem um prefixo específico.</p>
+<p>Para figuras, o processo é o mesmo. A Figura&nbsp;1 ilustra como uma imagem pode ser referenciada no texto.</p>
+<div id="fig-dna" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dna-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://cdn.britannica.com/32/234732-050-0E5E77CA/DNA-strands-concept-illustration.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dna-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Nisi ut aliquip ex ea commodo consequat.
+</figcaption>
+</figure>
+</div>
+<p>Já a Figura&nbsp;2 mostra como a numeração é gerada automaticamente:</p>
+<div id="fig-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://cdn.corporatefinanceinstitute.com/assets/scatter-plot2.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2: Eiusmod tempor eu fugat nulla.
+</figcaption>
+</figure>
+</div>
+<p>As cross-references facilitam muito a escrita científica, especialmente em documentos longos como dissertações e artigos.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Ferramentas</category>
+  <guid>https://IsabellaHannaCSM.github.io/posts/Recursos quarto/</guid>
+  <pubDate>Mon, 25 May 2026 03:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Ambientes no conda</title>
   <dc:creator>Isabella Moraes</dc:creator>
@@ -122,7 +297,7 @@ font-style: inherit;">&gt;</span> ambiente.yml</span></code></pre></div></div>
 
 
  ]]></description>
-  <category>linux</category>
+  <category>Ferramentas</category>
   <guid>https://IsabellaHannaCSM.github.io/posts/conda envs/</guid>
   <pubDate>Mon, 18 May 2026 03:00:00 GMT</pubDate>
 </item>
@@ -239,8 +414,167 @@ font-style: inherit;">-outfile</span> resultados.txt</span></code></pre></div></
 
 
  ]]></description>
-  <category>analises</category>
+  <category>Análises</category>
   <guid>https://IsabellaHannaCSM.github.io/posts/amplicon/</guid>
+  <pubDate>Mon, 18 May 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Anotação Gênica</title>
+  <dc:creator>Isabella Moraes</dc:creator>
+  <link>https://IsabellaHannaCSM.github.io/posts/Gene annotation/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="decifrando-o-código-da-vida-o-estado-da-arte-na-anotação-de-genomas" class="level3">
+<h3 class="anchored" data-anchor-id="decifrando-o-código-da-vida-o-estado-da-arte-na-anotação-de-genomas">Decifrando o Código da Vida: O Estado da Arte na Anotação de Genomas</h3>
+<p>Se você acha que sequenciar um genoma é o fim da jornada, pense novamente; na verdade, é apenas o começo. Com a queda drástica nos custos de sequenciamento, o grande desafio atual não é “ler” as letras do DNA, mas sim entender o que elas dizem, um processo conhecido como <strong>anotação de genomas</strong>.</p>
+<p>Neste post, vamos mergulhar nas teorias, programas e algoritmos que estão transformando o “oceano de dados” genômicos em conhecimento biológico real.</p>
+<hr>
+</section>
+<section id="a-fundação-montagem-e-preparação" class="level3">
+<h3 class="anchored" data-anchor-id="a-fundação-montagem-e-preparação">1. A Fundação: Montagem e Preparação</h3>
+<p>Antes de identificar genes, precisamos de uma “estrada” sólida. A qualidade da montagem do genoma é medida por estatísticas como o <strong>N50</strong>, que descreve a continuidade dos fragmentos (scaffolds). Uma regra prática é que uma montagem está pronta para anotação quando seu N50 é comparável ao tamanho médio de um gene do organismo.</p>
+<p>O primeiro passo técnico é o <strong>mascaramento de repetições</strong>. Eucariotos são repletos de elementos repetitivos que podem confundir algoritmos, gerando alinhamentos espúrios ou predições de genes falsos. Ferramentas como o <strong>RepeatMasker</strong> utilizam bibliotecas de DNA repetitivo para sinalizar essas regiões, garantindo que os preditores de genes foquem nas partes certas do genoma.</p>
+</section>
+<section id="a-teoria-o-que-é-um-gene-hoje" class="level3">
+<h3 class="anchored" data-anchor-id="a-teoria-o-que-é-um-gene-hoje">2. A Teoria: O que é um Gene Hoje?</h3>
+<p>A visão clássica de “um gene, uma proteína” ficou no passado. Hoje, entendemos o genoma como um sistema complexo de <strong>splicing alternativo</strong>, RNAs não codificantes (lncRNAs) e pseudogenes. A anotação moderna foca nos <strong>transcritos</strong>, e não apenas na sequência de DNA, reconhecendo que um único locus pode gerar múltiplas formas funcionais.</p>
+<p>Além disso, estamos avançando para o conceito de <strong>“gene estendido”</strong>, que integra elementos regulatórios (promotores e enhancers) e a estrutura 3D do genoma para interpretar como variantes genéticas afetam a saúde e a evolução.</p>
+</section>
+<section id="as-ferramentas-oleodutos-automatizados" class="level3">
+<h3 class="anchored" data-anchor-id="as-ferramentas-oleodutos-automatizados">3. As Ferramentas: Oleodutos Automatizados</h3>
+<p>A anotação manual é o “padrão ouro”, mas é lenta demais para a escala atual de dados. Por isso, surgiram pipelines altamente integrados:</p>
+<ul>
+<li><strong>BRAKER3:</strong> Este é o estado da arte na integração de evidências. Ele combina dados de <strong>RNA-seq</strong> (transcritoma) e bases de dados de <strong>proteínas homólogas</strong> para treinar automaticamente modelos estatísticos como o <strong>AUGUSTUS</strong> e o <strong>GeneMark-ETP</strong>.</li>
+<li><strong>GeneMark-ETP:</strong> Um algoritmo inovador que identifica primeiro genes de “alta confiança” baseados em evidências externas para depois treinar modelos que preveem genes nas regiões intermediárias do genoma.</li>
+<li><strong>TSEBRA:</strong> Atua como um “combinador”, selecionando os melhores modelos de transcritos de diferentes fontes para produzir um conjunto final de alta precisão.</li>
+</ul>
+</section>
+<section id="a-revolução-do-deep-learning-tiberius" class="level3">
+<h3 class="anchored" data-anchor-id="a-revolução-do-deep-learning-tiberius">4. A Revolução do Deep Learning: Tiberius</h3>
+<p>A maior novidade recente é o uso de <strong>Aprendizado Profundo (Deep Learning)</strong>. O programa <strong>Tiberius</strong> utiliza redes neurais convolucionais (CNNs) e camadas LSTM integradas a uma camada de <strong>Modelo Oculto de Markov (HMM)</strong> diferenciável.</p>
+<p>Diferente dos métodos tradicionais que dependem fortemente de RNA-seq, o Tiberius consegue prever a estrutura de genes com alta acurácia usando apenas a sequência genômica (<em>ab initio</em>). Ele utiliza uma função de perda personalizada (<strong>F1-loss</strong>) para lidar com o desequilíbrio do genoma, onde os éxons (regiões codificantes) representam apenas cerca de 1% da sequência total.</p>
+</section>
+<section id="a-importância-da-organização-regras-fair" class="level3">
+<h3 class="anchored" data-anchor-id="a-importância-da-organização-regras-fair">5. A Importância da Organização: Regras FAIR</h3>
+<p>De nada serve uma anotação brilhante se ninguém conseguir replicar seus resultados. A comunidade científica agora enfatiza os <strong>Princípios FAIR</strong> (Encontrável, Acessível, Interoperável e Reutilizável).</p>
+<p>Isso exige o registro rigoroso de <strong>metadados</strong> e o uso de ontologias controladas. O uso de contêineres como o <strong>Docker</strong> e ferramentas de gerenciamento de fluxo de trabalho como o <strong>nf-core</strong> garante que o ambiente de processamento seja preservado para o futuro.</p>
+</section>
+<section id="conclusão" class="level3">
+<h3 class="anchored" data-anchor-id="conclusão">Conclusão</h3>
+<p>A anotação de genomas evoluiu de uma tarefa artesanal para uma ciência de big data movida por algoritmos inteligentes e automação. Seja através de alinhamentos precisos ou de predições neurais velozes, o objetivo final permanece o mesmo: transformar o código genético em uma ponte para novas descobertas médicas e biológicas.</p>
+<p>Com base nas fontes, elaborei uma tabela com programas de predição gênica que foram validados ou são amplamente utilizados para <strong>nematódeos</strong>, especialmente para o organismo modelo <em>Caenorhabditis elegans</em>.</p>
+</section>
+<section id="programas-de-predição-gênica-para-nematódeos" class="level3">
+<h3 class="anchored" data-anchor-id="programas-de-predição-gênica-para-nematódeos">Programas de Predição Gênica para Nematódeos</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Programa</th>
+<th style="text-align: left;">Tipo / Abordagem</th>
+<th style="text-align: left;">Uso em Nematódeos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>BRAKER3</strong></td>
+<td style="text-align: left;">Baseado em evidências (RNA-seq e proteínas)</td>
+<td style="text-align: left;">Pipeline de última geração testado e validado no genoma de <em>C. elegans</em>, alcançando alta precisão ao integrar múltiplas fontes de dados.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>GeneMark-ETP</strong></td>
+<td style="text-align: left;">Integrativo (Genômica, Transcritômica e Proteínas)</td>
+<td style="text-align: left;">Identifica genes de “alta confiança” e treina modelos estatísticos automaticamente; foi um dos modelos centrais no benchmarking com <em>C. elegans</em>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>mGene</strong></td>
+<td style="text-align: left;">Baseado em SVM (Máquinas de Vetores de Suporte)</td>
+<td style="text-align: left;">Programa discriminativo de predição gênica especificamente citado por sua aplicação prática e acurácia em genomas de nematódeos.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>MAKER2</strong></td>
+<td style="text-align: left;">Pipeline de Anotação (Combinador)</td>
+<td style="text-align: left;">Utilizado pelo banco de dados <strong>WormBase</strong> para gerar anotações computacionais de diversas espécies de nematódeos além do <em>C. elegans</em>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>AUGUSTUS</strong></td>
+<td style="text-align: left;"><em>Ab initio</em> ou baseado em evidências (Hints)</td>
+<td style="text-align: left;">Possui arquivos de parâmetros pré-calculados e otimizados especificamente para <em>C. elegans</em>, facilitando sua aplicação direta.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>SNAP</strong></td>
+<td style="text-align: left;"><em>Ab initio</em> ou baseado em evidências</td>
+<td style="text-align: left;">Frequentemente utilizado em nematódeos devido à facilidade de configuração e disponibilidade de parâmetros para este clado.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="observações-relevantes-das-fontes" class="level3">
+<h3 class="anchored" data-anchor-id="observações-relevantes-das-fontes">Observações Relevantes das Fontes:</h3>
+<ul>
+<li><strong>WormBase:</strong> É a principal referência para dados genômicos de nematódeos, utilizando uma combinação de predição <em>ab initio</em>, projeção de modelos e anotação manual para manter a qualidade dos dados.</li>
+<li><strong>Acurácia e Complexidade:</strong> Para nematódeos com genomas compactos (como <em>C. elegans</em>), as fontes indicam que ferramentas integrativas como o <strong>TSEBRA</strong> (usado dentro do BRAKER3) mostram um desempenho comparável ao GeneMark-ETP, sendo ambos altamente eficazes.</li>
+<li><strong>Parâmetros Específicos:</strong> Mesmo para programas <em>ab initio</em>, é crucial usar parâmetros treinados no organismo de interesse (ou parentes próximos), pois características como uso de códons e comprimentos de íntrons variam significativamente.</li>
+</ul>
+<p>Com base nas fontes fornecidas, elaborei uma tabela atualizada com os principais programas e pipelines de predição gênica recomendados para <strong>nematódeos</strong> (como o organismo modelo <em>C. elegans</em>). Seguindo suas instruções, os programas que atuam como subcomponentes integrados foram omitidos em favor dos seus <strong>pipelines mais completos</strong>.</p>
+</section>
+<section id="melhores-programas-e-pipelines-para-predição-em-nematódeos" class="level3">
+<h3 class="anchored" data-anchor-id="melhores-programas-e-pipelines-para-predição-em-nematódeos">Melhores Programas e Pipelines para Predição em Nematódeos</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Programa / Pipeline</th>
+<th style="text-align: left;">Abordagem Principal</th>
+<th style="text-align: left;">Aplicação e Relevância para Nematódeos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>BRAKER3</strong></td>
+<td style="text-align: left;"><strong>Integradora de última geração</strong> (RNA-seq + Proteínas + <em>Ab initio</em>)</td>
+<td style="text-align: left;">É o estado da arte na família BRAKER. Ele integra o <strong>GeneMark-ETP</strong> e o <strong>AUGUSTUS</strong> com o combinador <strong>TSEBRA</strong>. Foi validado com sucesso no genoma de <strong><em>C. elegans</em></strong>, superando versões anteriores em acurácia.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>MAKER2</strong></td>
+<td style="text-align: left;"><strong>Pipeline de síntese e gestão</strong> (Combinadora)</td>
+<td style="text-align: left;">Ferramenta padrão utilizada pelo banco de dados <strong>WormBase</strong> para gerar anotações computacionais de diversas espécies de nematódeos. Ele integra e sintetiza evidências de alinhamentos com predições de programas como <strong>SNAP</strong> e <strong>GeneMark</strong>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>mGene</strong></td>
+<td style="text-align: left;"><strong>Discriminativa baseada em SVM</strong> (Máquinas de Vetores de Suporte)</td>
+<td style="text-align: left;">Descrito como um preditor de genes altamente acurado, baseado em aprendizado de máquina, com aplicação específica e validada para <strong>genomas de nematódeos</strong>.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="observações-importantes" class="level3">
+<h3 class="anchored" data-anchor-id="observações-importantes">Observações Importantes:</h3>
+<ul>
+<li><strong>Preditores Individuais:</strong> Programas como <strong>AUGUSTUS</strong>, <strong>SNAP</strong> e <strong>GeneMark-ETP</strong> são componentes fundamentais na pesquisa de nematódeos, mas conforme sua solicitação, foram listados apenas dentro dos pipelines <strong>BRAKER3</strong> e <strong>MAKER2</strong>, que representam suas formas mais integradas e automatizadas de execução.</li>
+<li><strong>WormBase:</strong> Para a comunidade de nematódeos, o <strong>WormBase</strong> é a autoridade central, utilizando uma combinação de predição <em>ab initio</em>, projeção de modelos de <em>C. elegans</em> e curação manual para manter a qualidade das anotações.</li>
+<li><strong>Limitação do Tiberius:</strong> Embora seja uma ferramenta de aprendizado profundo de alta performance, o <strong>Tiberius</strong> atualmente não é recomendado para nematódeos (clados não-vertebrados) sem que seja realizado um <strong>re-treinamento específico</strong>, pois sua acurácia cai significativamente à medida que a distância evolutiva do conjunto de treino aumenta.</li>
+<li><strong>Importância das Evidências:</strong> Para nematódeos com genomas compactos, a integração de <strong>RNA-seq</strong> (transcritoma) e <strong>proteínas homólogas</strong> através de pipelines como o BRAKER3 é crucial para atingir altos <strong>F1-scores</strong> tanto no nível de éxon quanto de gene.</li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>Análises</category>
+  <guid>https://IsabellaHannaCSM.github.io/posts/Gene annotation/</guid>
   <pubDate>Mon, 18 May 2026 03:00:00 GMT</pubDate>
 </item>
 </channel>
