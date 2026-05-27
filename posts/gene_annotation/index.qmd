@@ -1,83 +1,60 @@
 ---
 title: "Anotação Gênica"
 author: "Isabella Moraes"
-date: "2026-05-18"
+date: "2026-05-27"
 categories: [Análises]
-engine: knitr
-draft: true
+bibliography: 'Gene Annotation.bib'
 ---
 
-### Decifrando o Código da Vida: O Estado da Arte na Anotação de Genomas
+### O Estado da Arte na Anotação de Genomas
 
-Se você acha que sequenciar um genoma é o fim da jornada, pense novamente; na verdade, é apenas o começo. Com a queda drástica nos custos de sequenciamento, o grande desafio atual não é "ler" as letras do DNA, mas sim entender o que elas dizem, um processo conhecido como **anotação de genomas**.
+Hoje em dia, sequenciar um genoma é apenas o começo da jornada. Com a queda nos custos de sequenciamento, o grande desafio se tornou compreender, a nível estrutural e funcional, o número crescente de genomas sequenciados, um processo conhecido como **anotação de genomas**.
 
-Neste post, vamos mergulhar nas teorias, programas e algoritmos que estão transformando o "oceano de dados" genômicos em conhecimento biológico real.
+Neste post, falaremos das teorias, programas e algoritmos que estão transformando dados genômicos em conhecimento biológico real.
 
 ---
 
-### 1. A Fundação: Montagem e Preparação
-Antes de identificar genes, precisamos de uma "estrada" sólida. A qualidade da montagem do genoma é medida por estatísticas como o **N50**, que descreve a continuidade dos fragmentos (scaffolds). Uma regra prática é que uma montagem está pronta para anotação quando seu N50 é comparável ao tamanho médio de um gene do organismo.
-
-O primeiro passo técnico é o **mascaramento de repetições**. Eucariotos são repletos de elementos repetitivos que podem confundir algoritmos, gerando alinhamentos espúrios ou predições de genes falsos. Ferramentas como o **RepeatMasker** utilizam bibliotecas de DNA repetitivo para sinalizar essas regiões, garantindo que os preditores de genes foquem nas partes certas do genoma.
-
-### 2. A Teoria: O que é um Gene Hoje?
-A visão clássica de "um gene, uma proteína" ficou no passado. Hoje, entendemos o genoma como um sistema complexo de **splicing alternativo**, RNAs não codificantes (lncRNAs) e pseudogenes. A anotação moderna foca nos **transcritos**, e não apenas na sequência de DNA, reconhecendo que um único locus pode gerar múltiplas formas funcionais. 
+### 1. Quais elementos são anotados?
+A visão clássica de "um gene, uma proteína" ficou no passado. Hoje, entendemos o genoma como um sistema complexo de **splicing alternativo**, RNAs longos não codificantes (lncRNAs) e pseudogenes. A anotação moderna foca nos **transcritos**, e não apenas na sequência de DNA, reconhecendo que um único locus pode gerar múltiplas formas funcionais. 
 
 Além disso, estamos avançando para o conceito de **"gene estendido"**, que integra elementos regulatórios (promotores e enhancers) e a estrutura 3D do genoma para interpretar como variantes genéticas afetam a saúde e a evolução.
 
-### 3. As Ferramentas: Oleodutos Automatizados
-A anotação manual é o "padrão ouro", mas é lenta demais para a escala atual de dados. Por isso, surgiram pipelines altamente integrados:
+### 2. Montagem e Preparação
+Antes de identificar genes é preciso ter uma montagem de genoma de qualidade. Se os fragmentos (scaffolds) da montagem são menores que o tamanho médio de um gene do organismo, há uma grande chance dos genes estarem fragmentados, o que acaba sendo uma barreira na identificação correta de genes. 
 
-*   **BRAKER3:** Este é o estado da arte na integração de evidências. Ele combina dados de **RNA-seq** (transcritoma) e bases de dados de **proteínas homólogas** para treinar automaticamente modelos estatísticos como o **AUGUSTUS** e o **GeneMark-ETP**.
-*   **GeneMark-ETP:** Um algoritmo inovador que identifica primeiro genes de "alta confiança" baseados em evidências externas para depois treinar modelos que preveem genes nas regiões intermediárias do genoma.
-*   **TSEBRA:** Atua como um "combinador", selecionando os melhores modelos de transcritos de diferentes fontes para produzir um conjunto final de alta precisão.
+A qualidade da montagem do genoma pode ser medida por estatísticas como o **N50**, que descreve a continuidade dos fragmentos. Uma regra prática é que uma montagem está pronta para anotação quando seu N50 é comparável ao tamanho médio de um gene do organismo.
 
-### 4. A Revolução do Deep Learning: Tiberius
-A maior novidade recente é o uso de **Aprendizado Profundo (Deep Learning)**. O programa **Tiberius** utiliza redes neurais convolucionais (CNNs) e camadas LSTM integradas a uma camada de **Modelo Oculto de Markov (HMM)** diferenciável. 
+Após obter uma montagem de qualidade, o primeiro passo técnico da anotação é o **mascaramento de repetições**. Eucariotos possuem muitos elementos repetitivos que podem atrapalhar os algoritmos, gerando um volume alto de alinhamentos e predições de genes falsos. Ferramentas como o **RepeatMasker** utilizam bibliotecas de DNA repetitivo para identificar essas regiões, garantindo que os preditores de genes foquem nas partes certas do genoma.
 
-Diferente dos métodos tradicionais que dependem fortemente de RNA-seq, o Tiberius consegue prever a estrutura de genes com alta acurácia usando apenas a sequência genômica (*ab initio*). Ele utiliza uma função de perda personalizada (**F1-loss**) para lidar com o desequilíbrio do genoma, onde os éxons (regiões codificantes) representam apenas cerca de 1% da sequência total.
+### 3. Ferramentas e Estratégias:
 
-### 5. A Importância da Organização: Regras FAIR
-De nada serve uma anotação brilhante se ninguém conseguir replicar seus resultados. A comunidade científica agora enfatiza os **Princípios FAIR** (Encontrável, Acessível, Interoperável e Reutilizável). 
+Embora a anotação manual curada por especialistas ainda seja considerada o "padrão ouro" pela sua alta qualidade, ela é lenta demais para acompanhar o ritmo atual de sequenciamento massivo. Para resolver esse gargalo, a bioinformática desenvolveu diferentes tipos de softwares que podem ser classificados em dois grandes grupos: os **preditores *ab initio*** e os **baseados em evidência**.
 
-Isso exige o registro rigoroso de **metadados** e o uso de ontologias controladas. O uso de contêineres como o **Docker** e ferramentas de gerenciamento de fluxo de trabalho como o **nf-core** garante que o ambiente de processamento seja preservado para o futuro.
+Os **programas *ab initio*** utilizam modelos matemáticos (como Modelos Ocultos de Markov - HMMs) para identificar genes baseando-se apenas em características intrínsecas da sequência genômica, como frequência de códons e comprimentos de íntrons. Já os **preditores baseados em evidência** incorporam dados extrínsecos, como alinhamentos de proteínas homólogas ou sequências de RNA-seq (transcritoma), para aumentar a precisão da predição. No cenário atual, os seguintes sistemas representam o **estado da arte**:
+
+*   **GeneMark-ETP:** Um algoritmo inovador que identifica primeiro genes de "alta confiança" (HC) baseados em evidências externas para, em seguida, treinar iterativamente modelos que preveem genes nas regiões intermediárias onde a evidência é escassa.
+*   **TSEBRA:** Atua como um "combinador" de transcritos. Ele avalia as predições vindas de diferentes fontes e seleciona o conjunto final de modelos gênicos que apresenta maior concordância com as evidências, otimizando a acurácia da anotação.
+*   **BRAKER3:** É atualmente o pipeline mais avançado para a integração de evidências. Ele utiliza o **TSEBRA** para combinar as predições do **GeneMark-ETP** e do preditor *Ab initio* **AUGUSTUS**. (O BRAKER4 foi lançado no último mês, com melhorias na estrutura do código, mas com a mesma lógica de predição gênica.)
+*   **Tiberius (A Revolução do Deep Learning):** Representa o salto mais recente na predição **ab initio**. Ao contrário dos métodos tradicionais, o Tiberius utiliza **Aprendizado Profundo**. Ele consegue prever estruturas gênicas com alta acurácia usando apenas a sequência de DNA. (@gabriel_tiberius_2024)
+
+É importante destacar que não há uma melhor ferramenta universal. A melhor ferramenta para uma espécie, pode não funcionar tão bem para outra. O Tiberius, por exemplo, apesar de ser a melhor ferramenta de predição **ab initio** atualmente, não é boa o suficiente para a anotação de genes de nemátodos, pois o algoritmo ainda não foi treinado para esse filo (@gabriel_accurate_nodate). Os melhores programas para a predição de nemátodos ainda são:
+
+
+| Programa | Abordagem | Uso em Nematódeos | Link | Referência |
+| :--- | :--- | :--- | :--- | :--- |
+| **BRAKER3** | Baseado em evidências (RNA-seq e proteínas) | Pipeline de última geração testado e validado no genoma de *C. elegans*, alcançando alta precisão ao integrar múltiplas fontes de dados. | [BRAKER](https://github.com/Gaius-Augustus/BRAKER) | @gabriel_braker3_2024 |
+| **GeneMark-ETP** | Integrativo (Genômica, Transcritômica e Proteínas) | Identifica genes de "alta confiança" e treina modelos estatísticos automaticamente; foi um dos modelos centrais no benchmarking com *C. elegans*. | [GeneMark-ETP](https://github.com/gatech-genemark/GeneMark-ETP) | @bruna_genemark-etp_2024 |
+| **mGene** | Baseado em SVM (Máquinas de Vetores de Suporte) | Programa discriminativo de predição gênica especificamente citado por sua aplicação prática e acurácia em genomas de nematódeos. | [mGene](https://github.com/ratschlab/mGene/tree/master) | @yandell_beginners_2012 |
+| **MAKER2** | Pipeline de Anotação (Combinador) | Utilizado pelo banco de dados **WormBase** para gerar anotações computacionais de diversas espécies de nematódeos além do *C. elegans*. | [Maker2](https://github.com/TheBrownLab/MAKER2-pipeline) | @mudge_state_2016 |
+
+: {tbl-colwidths="[15,20,40,10,15]"}
+
+### 4. Regras FAIR
+É importante que, além de confiável, uma anotação também seja replicável. Por isso, têm se tornado cada vez mais necessário seguir os **Princípios FAIR** (Encontrável, Acessível, Interoperável e Reutilizável). 
+
+Isso exige o registro rigoroso de **metadados** e o uso de ontologias controladas, para evitar inconsistências e padronizar termos. Isso facilita a integração entre diferentes estudos.
+
+A reprodutibilidade técnica pode ser assegurada pelo encapsulamento de todo o ambiente de análise em contêineres, como o Docker ou Singularity, e pelo uso de gerenciadores de fluxo de trabalho como o nf-core, Cromwell ou Galaxy. Isso garante que o ambiente de processamento seja preservado e os resultados de uma anotação, replicados (@stevens_ten_2020).
 
 ### Conclusão
-A anotação de genomas evoluiu de uma tarefa artesanal para uma ciência de big data movida por algoritmos inteligentes e automação. Seja através de alinhamentos precisos ou de predições neurais velozes, o objetivo final permanece o mesmo: transformar o código genético em uma ponte para novas descobertas médicas e biológicas.
-
-Com base nas fontes, elaborei uma tabela com programas de predição gênica que foram validados ou são amplamente utilizados para **nematódeos**, especialmente para o organismo modelo *Caenorhabditis elegans*.
-
-### Programas de Predição Gênica para Nematódeos
-
-| Programa | Tipo / Abordagem | Uso em Nematódeos |
-| :--- | :--- | :--- |
-| **BRAKER3** | Baseado em evidências (RNA-seq e proteínas) | Pipeline de última geração testado e validado no genoma de *C. elegans*, alcançando alta precisão ao integrar múltiplas fontes de dados. |
-| **GeneMark-ETP** | Integrativo (Genômica, Transcritômica e Proteínas) | Identifica genes de "alta confiança" e treina modelos estatísticos automaticamente; foi um dos modelos centrais no benchmarking com *C. elegans*. |
-| **mGene** | Baseado em SVM (Máquinas de Vetores de Suporte) | Programa discriminativo de predição gênica especificamente citado por sua aplicação prática e acurácia em genomas de nematódeos. |
-| **MAKER2** | Pipeline de Anotação (Combinador) | Utilizado pelo banco de dados **WormBase** para gerar anotações computacionais de diversas espécies de nematódeos além do *C. elegans*. |
-| **AUGUSTUS** | *Ab initio* ou baseado em evidências (Hints) | Possui arquivos de parâmetros pré-calculados e otimizados especificamente para *C. elegans*, facilitando sua aplicação direta. |
-| **SNAP** | *Ab initio* ou baseado em evidências | Frequentemente utilizado em nematódeos devido à facilidade de configuração e disponibilidade de parâmetros para este clado. |
-
-### Observações Relevantes das Fontes:
-
-*   **WormBase:** É a principal referência para dados genômicos de nematódeos, utilizando uma combinação de predição *ab initio*, projeção de modelos e anotação manual para manter a qualidade dos dados.
-*   **Acurácia e Complexidade:** Para nematódeos com genomas compactos (como *C. elegans*), as fontes indicam que ferramentas integrativas como o **TSEBRA** (usado dentro do BRAKER3) mostram um desempenho comparável ao GeneMark-ETP, sendo ambos altamente eficazes.
-*   **Parâmetros Específicos:** Mesmo para programas *ab initio*, é crucial usar parâmetros treinados no organismo de interesse (ou parentes próximos), pois características como uso de códons e comprimentos de íntrons variam significativamente.
-
-
-Com base nas fontes fornecidas, elaborei uma tabela atualizada com os principais programas e pipelines de predição gênica recomendados para **nematódeos** (como o organismo modelo *C. elegans*). Seguindo suas instruções, os programas que atuam como subcomponentes integrados foram omitidos em favor dos seus **pipelines mais completos**.
-
-### Melhores Programas e Pipelines para Predição em Nematódeos
-
-| Programa / Pipeline | Abordagem Principal | Aplicação e Relevância para Nematódeos |
-| :--- | :--- | :--- |
-| **BRAKER3** | **Integradora de última geração** (RNA-seq + Proteínas + *Ab initio*) | É o estado da arte na família BRAKER. Ele integra o **GeneMark-ETP** e o **AUGUSTUS** com o combinador **TSEBRA**. Foi validado com sucesso no genoma de ***C. elegans***, superando versões anteriores em acurácia. |
-| **MAKER2** | **Pipeline de síntese e gestão** (Combinadora) | Ferramenta padrão utilizada pelo banco de dados **WormBase** para gerar anotações computacionais de diversas espécies de nematódeos. Ele integra e sintetiza evidências de alinhamentos com predições de programas como **SNAP** e **GeneMark**. |
-| **mGene** | **Discriminativa baseada em SVM** (Máquinas de Vetores de Suporte) | Descrito como um preditor de genes altamente acurado, baseado em aprendizado de máquina, com aplicação específica e validada para **genomas de nematódeos**. |
-
-### Observações Importantes:
-
-*   **Preditores Individuais:** Programas como **AUGUSTUS**, **SNAP** e **GeneMark-ETP** são componentes fundamentais na pesquisa de nematódeos, mas conforme sua solicitação, foram listados apenas dentro dos pipelines **BRAKER3** e **MAKER2**, que representam suas formas mais integradas e automatizadas de execução.
-*   **WormBase:** Para a comunidade de nematódeos, o **WormBase** é a autoridade central, utilizando uma combinação de predição *ab initio*, projeção de modelos de *C. elegans* e curação manual para manter a qualidade das anotações.
-*   **Limitação do Tiberius:** Embora seja uma ferramenta de aprendizado profundo de alta performance, o **Tiberius** atualmente não é recomendado para nematódeos (clados não-vertebrados) sem que seja realizado um **re-treinamento específico**, pois sua acurácia cai significativamente à medida que a distância evolutiva do conjunto de treino aumenta.
-*   **Importância das Evidências:** Para nematódeos com genomas compactos, a integração de **RNA-seq** (transcritoma) e **proteínas homólogas** através de pipelines como o BRAKER3 é crucial para atingir altos **F1-scores** tanto no nível de éxon quanto de gene.
+A anotação de genomas evoluiu de uma tarefa artesanal para uma ciência de big data movida por algoritmos inteligentes e automação. Seja através de alinhamentos precisos ou de predições velozes, o objetivo final permanece o mesmo: transformar o código genético em uma ponte para novas descobertas biológicas.

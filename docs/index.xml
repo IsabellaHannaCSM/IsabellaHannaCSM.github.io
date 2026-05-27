@@ -10,7 +10,135 @@
 <atom:link href="https://IsabellaHannaCSM.github.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog built with Quarto</description>
 <generator>quarto-1.9.37</generator>
-<lastBuildDate>Mon, 25 May 2026 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 27 May 2026 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Anotação Gênica</title>
+  <dc:creator>Isabella Moraes</dc:creator>
+  <link>https://IsabellaHannaCSM.github.io/posts/gene_annotation/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="o-estado-da-arte-na-anotação-de-genomas" class="level3">
+<h3 class="anchored" data-anchor-id="o-estado-da-arte-na-anotação-de-genomas">O Estado da Arte na Anotação de Genomas</h3>
+<p>Hoje em dia, sequenciar um genoma é apenas o começo da jornada. Com a queda nos custos de sequenciamento, o grande desafio se tornou compreender, a nível estrutural e funcional, o número crescente de genomas sequenciados, um processo conhecido como <strong>anotação de genomas</strong>.</p>
+<p>Neste post, falaremos das teorias, programas e algoritmos que estão transformando dados genômicos em conhecimento biológico real.</p>
+<hr>
+</section>
+<section id="quais-elementos-são-anotados" class="level3">
+<h3 class="anchored" data-anchor-id="quais-elementos-são-anotados">1. Quais elementos são anotados?</h3>
+<p>A visão clássica de “um gene, uma proteína” ficou no passado. Hoje, entendemos o genoma como um sistema complexo de <strong>splicing alternativo</strong>, RNAs longos não codificantes (lncRNAs) e pseudogenes. A anotação moderna foca nos <strong>transcritos</strong>, e não apenas na sequência de DNA, reconhecendo que um único locus pode gerar múltiplas formas funcionais.</p>
+<p>Além disso, estamos avançando para o conceito de <strong>“gene estendido”</strong>, que integra elementos regulatórios (promotores e enhancers) e a estrutura 3D do genoma para interpretar como variantes genéticas afetam a saúde e a evolução.</p>
+</section>
+<section id="montagem-e-preparação" class="level3">
+<h3 class="anchored" data-anchor-id="montagem-e-preparação">2. Montagem e Preparação</h3>
+<p>Antes de identificar genes é preciso ter uma montagem de genoma de qualidade. Se os fragmentos (scaffolds) da montagem são menores que o tamanho médio de um gene do organismo, há uma grande chance dos genes estarem fragmentados, o que acaba sendo uma barreira na identificação correta de genes.</p>
+<p>A qualidade da montagem do genoma pode ser medida por estatísticas como o <strong>N50</strong>, que descreve a continuidade dos fragmentos. Uma regra prática é que uma montagem está pronta para anotação quando seu N50 é comparável ao tamanho médio de um gene do organismo.</p>
+<p>Após obter uma montagem de qualidade, o primeiro passo técnico da anotação é o <strong>mascaramento de repetições</strong>. Eucariotos possuem muitos elementos repetitivos que podem atrapalhar os algoritmos, gerando um volume alto de alinhamentos e predições de genes falsos. Ferramentas como o <strong>RepeatMasker</strong> utilizam bibliotecas de DNA repetitivo para identificar essas regiões, garantindo que os preditores de genes foquem nas partes certas do genoma.</p>
+</section>
+<section id="ferramentas-e-estratégias" class="level3">
+<h3 class="anchored" data-anchor-id="ferramentas-e-estratégias">3. Ferramentas e Estratégias:</h3>
+<p>Embora a anotação manual curada por especialistas ainda seja considerada o “padrão ouro” pela sua alta qualidade, ela é lenta demais para acompanhar o ritmo atual de sequenciamento massivo. Para resolver esse gargalo, a bioinformática desenvolveu diferentes tipos de softwares que podem ser classificados em dois grandes grupos: os <strong>preditores <em>ab initio</em></strong> e os <strong>baseados em evidência</strong>.</p>
+<p>Os <strong>programas <em>ab initio</em></strong> utilizam modelos matemáticos (como Modelos Ocultos de Markov - HMMs) para identificar genes baseando-se apenas em características intrínsecas da sequência genômica, como frequência de códons e comprimentos de íntrons. Já os <strong>preditores baseados em evidência</strong> incorporam dados extrínsecos, como alinhamentos de proteínas homólogas ou sequências de RNA-seq (transcritoma), para aumentar a precisão da predição. No cenário atual, os seguintes sistemas representam o <strong>estado da arte</strong>:</p>
+<ul>
+<li><strong>GeneMark-ETP:</strong> Um algoritmo inovador que identifica primeiro genes de “alta confiança” (HC) baseados em evidências externas para, em seguida, treinar iterativamente modelos que preveem genes nas regiões intermediárias onde a evidência é escassa.</li>
+<li><strong>TSEBRA:</strong> Atua como um “combinador” de transcritos. Ele avalia as predições vindas de diferentes fontes e seleciona o conjunto final de modelos gênicos que apresenta maior concordância com as evidências, otimizando a acurácia da anotação.</li>
+<li><strong>BRAKER3:</strong> É atualmente o pipeline mais avançado para a integração de evidências. Ele utiliza o <strong>TSEBRA</strong> para combinar as predições do <strong>GeneMark-ETP</strong> e do preditor <em>Ab initio</em> <strong>AUGUSTUS</strong>. (O BRAKER4 foi lançado no último mês, com melhorias na estrutura do código, mas com a mesma lógica de predição gênica.)</li>
+<li><strong>Tiberius (A Revolução do Deep Learning):</strong> Representa o salto mais recente na predição <strong>ab initio</strong>. Ao contrário dos métodos tradicionais, o Tiberius utiliza <strong>Aprendizado Profundo</strong>. Ele consegue prever estruturas gênicas com alta acurácia usando apenas a sequência de DNA. (<span class="citation" data-cites="gabriel_tiberius_2024">Gabriel, Becker, et al. (2024)</span>)</li>
+</ul>
+<p>É importante destacar que não há uma melhor ferramenta universal. A melhor ferramenta para uma espécie, pode não funcionar tão bem para outra. O Tiberius, por exemplo, apesar de ser a melhor ferramenta de predição <strong>ab initio</strong> atualmente, não é boa o suficiente para a anotação de genes de nemátodos, pois o algoritmo ainda não foi treinado para esse filo (<span class="citation" data-cites="gabriel_accurate_nodate">Gabriel et al. (n.d.)</span>). Os melhores programas para a predição de nemátodos ainda são:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 20%">
+<col style="width: 40%">
+<col style="width: 10%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Programa</th>
+<th style="text-align: left;">Abordagem</th>
+<th style="text-align: left;">Uso em Nematódeos</th>
+<th style="text-align: left;">Link</th>
+<th style="text-align: left;">Referência</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>BRAKER3</strong></td>
+<td style="text-align: left;">Baseado em evidências (RNA-seq e proteínas)</td>
+<td style="text-align: left;">Pipeline de última geração testado e validado no genoma de <em>C. elegans</em>, alcançando alta precisão ao integrar múltiplas fontes de dados.</td>
+<td style="text-align: left;"><a href="https://github.com/Gaius-Augustus/BRAKER">BRAKER</a></td>
+<td style="text-align: left;"><span class="citation" data-cites="gabriel_braker3_2024">Gabriel, Brůna, et al. (2024)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>GeneMark-ETP</strong></td>
+<td style="text-align: left;">Integrativo (Genômica, Transcritômica e Proteínas)</td>
+<td style="text-align: left;">Identifica genes de “alta confiança” e treina modelos estatísticos automaticamente; foi um dos modelos centrais no benchmarking com <em>C. elegans</em>.</td>
+<td style="text-align: left;"><a href="https://github.com/gatech-genemark/GeneMark-ETP">GeneMark-ETP</a></td>
+<td style="text-align: left;"><span class="citation" data-cites="bruna_genemark-etp_2024">Brůna et al. (2024)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>mGene</strong></td>
+<td style="text-align: left;">Baseado em SVM (Máquinas de Vetores de Suporte)</td>
+<td style="text-align: left;">Programa discriminativo de predição gênica especificamente citado por sua aplicação prática e acurácia em genomas de nematódeos.</td>
+<td style="text-align: left;"><a href="https://github.com/ratschlab/mGene/tree/master">mGene</a></td>
+<td style="text-align: left;"><span class="citation" data-cites="yandell_beginners_2012">Yandell and Ence (2012)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>MAKER2</strong></td>
+<td style="text-align: left;">Pipeline de Anotação (Combinador)</td>
+<td style="text-align: left;">Utilizado pelo banco de dados <strong>WormBase</strong> para gerar anotações computacionais de diversas espécies de nematódeos além do <em>C. elegans</em>.</td>
+<td style="text-align: left;"><a href="https://github.com/TheBrownLab/MAKER2-pipeline">Maker2</a></td>
+<td style="text-align: left;"><span class="citation" data-cites="mudge_state_2016">Mudge and Harrow (2016)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="regras-fair" class="level3">
+<h3 class="anchored" data-anchor-id="regras-fair">4. Regras FAIR</h3>
+<p>É importante que, além de confiável, uma anotação também seja replicável. Por isso, têm se tornado cada vez mais necessário seguir os <strong>Princípios FAIR</strong> (Encontrável, Acessível, Interoperável e Reutilizável).</p>
+<p>Isso exige o registro rigoroso de <strong>metadados</strong> e o uso de ontologias controladas, para evitar inconsistências e padronizar termos. Isso facilita a integração entre diferentes estudos.</p>
+<p>A reprodutibilidade técnica pode ser assegurada pelo encapsulamento de todo o ambiente de análise em contêineres, como o Docker ou Singularity, e pelo uso de gerenciadores de fluxo de trabalho como o nf-core, Cromwell ou Galaxy. Isso garante que o ambiente de processamento seja preservado e os resultados de uma anotação, replicados (<span class="citation" data-cites="stevens_ten_2020">Stevens et al. (2020)</span>).</p>
+</section>
+<section id="conclusão" class="level3">
+<h3 class="anchored" data-anchor-id="conclusão">Conclusão</h3>
+<p>A anotação de genomas evoluiu de uma tarefa artesanal para uma ciência de big data movida por algoritmos inteligentes e automação. Seja através de alinhamentos precisos ou de predições velozes, o objetivo final permanece o mesmo: transformar o código genético em uma ponte para novas descobertas biológicas.</p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-bruna_genemark-etp_2024" class="csl-entry">
+Brůna, Tomáš, Alexandre Lomsadze, and Mark Borodovsky. 2024. <span>“<span>GeneMark</span>-<span>ETP</span> Significantly Improves the Accuracy of Automatic Annotation of Large Eukaryotic Genomes.”</span> <em>Genome Research</em> 34 (5): 757–68. <a href="https://doi.org/10.1101/gr.278373.123">https://doi.org/10.1101/gr.278373.123</a>.
+</div>
+<div id="ref-gabriel_tiberius_2024" class="csl-entry">
+Gabriel, Lars, Felix Becker, Katharina J Hoff, and Mario Stanke. 2024. <span>“Tiberius: End-to-End Deep Learning with an <span>HMM</span> for Gene Prediction.”</span> <em>Bioinformatics</em> 40 (12): btae685. <a href="https://doi.org/10.1093/bioinformatics/btae685">https://doi.org/10.1093/bioinformatics/btae685</a>.
+</div>
+<div id="ref-gabriel_braker3_2024" class="csl-entry">
+Gabriel, Lars, Tomáš Brůna, Katharina J. Hoff, et al. 2024. <span>“<span>BRAKER3</span>: <span>Fully</span> Automated Genome Annotation Using <span>RNA</span>-Seq and Protein Evidence with <span>GeneMark</span>-<span>ETP</span>, <span>AUGUSTUS</span>, and <span>TSEBRA</span>.”</span> <em>Genome Research</em> 34 (5): 769–77. <a href="https://doi.org/10.1101/gr.278090.123">https://doi.org/10.1101/gr.278090.123</a>.
+</div>
+<div id="ref-gabriel_accurate_nodate" class="csl-entry">
+Gabriel, Lars, Asaf Salamov, Samuel Talbot, et al. n.d. <em>Accurate Ab Initio Gene Prediction in Eukaryotes with <span>Tiberius</span> in Multiple Clades</em>.
+</div>
+<div id="ref-mudge_state_2016" class="csl-entry">
+Mudge, Jonathan M., and Jennifer Harrow. 2016. <span>“The State of Play in Higher Eukaryote Gene Annotation.”</span> <em>Nature Reviews Genetics</em> 17 (12): 758–72. <a href="https://doi.org/10.1038/nrg.2016.119">https://doi.org/10.1038/nrg.2016.119</a>.
+</div>
+<div id="ref-stevens_ten_2020" class="csl-entry">
+Stevens, Irene, Abdul Kadir Mukarram, Matthias Hörtenhuber, Terrence F. Meehan, Johan Rung, and Carsten O. Daub. 2020. <span>“Ten Simple Rules for Annotating Sequencing Experiments.”</span> <em>PLOS Computational Biology</em> 16 (10): e1008260. <a href="https://doi.org/10.1371/journal.pcbi.1008260">https://doi.org/10.1371/journal.pcbi.1008260</a>.
+</div>
+<div id="ref-yandell_beginners_2012" class="csl-entry">
+Yandell, Mark, and Daniel Ence. 2012. <span>“A Beginner’s Guide to Eukaryotic Genome Annotation.”</span> <em>Nature Reviews Genetics</em> 13 (5): 329–42. <a href="https://doi.org/10.1038/nrg3174">https://doi.org/10.1038/nrg3174</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>Análises</category>
+  <guid>https://IsabellaHannaCSM.github.io/posts/gene_annotation/</guid>
+  <pubDate>Wed, 27 May 2026 03:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Recursos úteis do Quarto</title>
   <dc:creator>Isabella Moraes</dc:creator>
@@ -24,7 +152,7 @@
 <p>O Quarto oferece recursos que podem tornar a documentação científica mais organizada. Aqui, apresento alguns dos mais úteis no dia a dia.</p>
 <section id="definition-list" class="level2">
 <h2 class="anchored" data-anchor-id="definition-list">Definition list</h2>
-<p>A definition list é ideal para criar glossários ou explicar termos técnicos de forma clara.</p>
+<p>A definition list é ideal para criar g lossários ou explicar termos técnicos de forma clara.</p>
 <dl>
 <dt>Lorem:</dt>
 <dd>
@@ -417,6 +545,14 @@ font-style: inherit;">-outfile</span> resultados.txt</span></code></pre></div></
   <category>Análises</category>
   <guid>https://IsabellaHannaCSM.github.io/posts/amplicon/</guid>
   <pubDate>Mon, 18 May 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title></title>
+  <dc:creator>Tristan O&#39;Malley</dc:creator>
+  <link>https://IsabellaHannaCSM.github.io/posts/welcome/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <guid>https://IsabellaHannaCSM.github.io/posts/welcome/</guid>
+  <pubDate>Fri, 15 May 2026 03:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

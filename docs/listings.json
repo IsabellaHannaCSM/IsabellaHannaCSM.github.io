@@ -2,9 +2,11 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/gene_annotation/index.html",
       "/posts/recursos_quarto/index.html",
       "/posts/conda_envs/index.html",
-      "/posts/amplicon/index.html"
+      "/posts/amplicon/index.html",
+      "/posts/welcome/index.html"
     ]
   }
 ]

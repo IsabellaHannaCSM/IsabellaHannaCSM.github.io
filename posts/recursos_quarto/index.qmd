@@ -12,7 +12,7 @@ O Quarto oferece recursos que podem tornar a documentação científica mais org
 
 ## Definition list
 
-A definition list é ideal para criar glossários ou explicar termos técnicos de forma clara.
+A definition list é ideal para criar g lossários ou explicar termos técnicos de forma clara.
 
 Lorem:
 : ipsum dolor velit esse cillum dolore.
